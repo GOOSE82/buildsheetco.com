@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Sheet Co. — Printable Logs & Trackers for Builders and Parents</title>
+  <meta name="description" content="Printable planners, trackers, and logs for gearheads and new parents. Instant download. Print at home. Built for people who actually use their hands." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:   #0f0f0f;
+      --white:   #f8f8f6;
+      --gray:    #888;
+      --accent:  #c8a84b;
+      --card-bg: #1a1a1a;
+      --border:  #2a2a2a;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.1rem;
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li a { color: var(--gray); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    nav ul li a:hover { color: var(--white); text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      max-width: 760px;
+      margin: 6rem auto 5rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      font-weight: normal;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* EMAIL FORM */
+    .signup-form {
+      display: flex;
+      gap: 0;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .signup-form input {
+      flex: 1;
+      padding: 0.85rem 1.2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+    .signup-form input::placeholder { color: var(--gray); }
+    .signup-form input:focus { border-color: var(--accent); }
+    .signup-form button {
+      padding: 0.85rem 1.5rem;
+      background: var(--accent);
+      color: var(--black);
+      border: none;
+      font-size: 0.85rem;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .signup-form button:hover { background: #dbb85c; }
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 0.75rem;
+      font-family: Arial, sans-serif;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 5rem 2rem;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      max-width: 960px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      margin-bottom: 1rem;
+    }
+    .categories h2 {
+      font-size: 2rem;
+      font-weight: normal;
+      margin-bottom: 3rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-category {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      margin-bottom: 0.75rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: normal;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .card p {
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .card-price {
+      font-size: 0.9rem;
+      color: var(--white);
+      font-family: Arial, sans-serif;
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--border);
+      color: var(--gray);
+      padding: 0.2rem 0.5rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* HOW IT WORKS */
+    .how {
+      max-width: 760px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .how h2 { font-size: 1.8rem; font-weight: normal; margin-bottom: 3rem; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+    .step-num {
+      font-size: 2rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    .step h4 { font-size: 0.95rem; margin-bottom: 0.4rem; font-weight: normal; }
+    .step p { font-size: 0.82rem; color: var(--gray); font-family: Arial, sans-serif; }
+
+    /* CTA */
+    .cta {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta h2 { font-size: 2rem; font-weight: normal; margin-bottom: 1rem; }
+    .cta p { color: var(--gray); font-family: Arial, sans-serif; margin-bottom: 2rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: var(--accent);
+      color: var(--black);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .btn:hover { background: #dbb85c; text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p { font-size: 0.8rem; color: var(--gray); font-family: Arial, sans-serif; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--gray); font-family: Arial, sans-serif; }
+    .footer-links a:hover { color: var(--white); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .signup-form { flex-direction: column; }
+      .signup-form input { border-right: 1px solid var(--border); border-bottom: none; }
+      nav ul { display: none; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Build <span>Sheet</span> Co.</div>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="https://etsy.com/shop/buildsheetco" target="_blank">Etsy Shop</a></li>
+      <li><a href="mailto:hello@buildsheetco.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-tag">Instant Download · Print at Home · No Fluff</p>
+    <h1>Logs and trackers for people who <em>actually do things.</em></h1>
+    <p>Printable planners for builders, mechanics, and new parents. Buy once, print forever. No app required.</p>
+
+    <form class="signup-form" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="form-note">Get notified when the shop opens. No spam.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PRODUCTS -->
+  <section class="categories" id="products">
+    <p class="section-label">What We Make</p>
+    <h2>Two lines. One standard.</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <p class="card-category">Automotive</p>
+        <h3>LS Swap Build Tracker</h3>
+        <p>Parts list, budget log, vendor contacts, weekly progress. 8 pages. Built for a real engine swap.</p>
+        <div class="card-price">$4.99 <span class="card-badge">Coming Soon</span></div>
+      </div>
+      <div class="card">
+        <p class="card-category">Automotive</p>
+        <h3>Classic Truck Restoration Log</h3>
+        <p>Document your build start to finish. Parts tracker, photo notes, mileage log, shop contacts.</p>
+        <div class="card-price">$4.99 <span class="card-badge">Coming Soon</span></div>
+      </div>
+      <div class="card">
+        <p class="card-category">Automotive</p>
+        <h3>Drag Racing Tune Log</h3>
+        <p>Track ET, 60-ft, MPH, boost, weather, and tire pressure per pass. 10 data sheets per pack.</p>
+        <div class="card-price">$3.99 <span class="card-badge">Coming Soon</span></div>
+      </div>
+      <div class="card">
+        <p class="card-category">Baby &amp; Parenting</p>
+        <h3>Breastfeeding &amp; Feeding Tracker</h3>
+        <p>Log nursing sessions, bottles, pumping output, diapers, and sleep. Undated — print as needed.</p>
+        <div class="card-price">$3.99 <span class="card-badge">Coming Soon</span></div>
+      </div>
+      <div class="card">
+        <p class="card-category">Baby &amp; Parenting</p>
+        <h3>Baby Milestone Cards — 40 Pack</h3>
+        <p>First smile, first tooth, first steps and more. Print on cardstock, cut, and keep forever.</p>
+        <div class="card-price">$4.99 <span class="card-badge">Coming Soon</span></div>
+      </div>
+      <div class="card">
+        <p class="card-category">Baby &amp; Parenting</p>
+        <h3>Baby First Year Memory Book</h3>
+        <p>Monthly pages, milestones, letter to baby, hand and footprint pages. Complete first-year journal.</p>
+        <div class="card-price">$6.99 <span class="card-badge">Coming Soon</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Buy on Etsy</h4>
+        <p>Instant download delivered to your email the second you checkout.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Print at home</h4>
+        <p>Standard letter size. Works on any home printer. Print one or a hundred.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Get to work</h4>
+        <p>No app. No subscription. No notifications. Just paper and a pen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Shop opens soon.</h2>
+    <p>Sign up to be notified when listings go live — first customers get a discount code.</p>
+    <a href="#" class="btn" onclick="document.querySelector('.signup-form input').focus(); return false;">Get Early Access</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Build Sheet Co. · buildsheetco.com</p>
+    <div class="footer-links">
+      <a href="https://etsy.com/shop/buildsheetco" target="_blank">Etsy Shop</a>
+      <a href="mailto:hello@buildsheetco.com">hello@buildsheetco.com</a>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input').value;
+      // TODO: wire to Mailchimp or ConvertKit API
+      e.target.innerHTML = '<p style="color:#c8a84b;font-family:Arial;font-size:0.9rem;">✓ You\'re on the list. We\'ll be in touch.</p>';
+      console.log('Email captured:', email);
+    }
+  </script>
+
+</body>
+</html>
