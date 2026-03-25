@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Sheet Co. — Connecting...</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0f0f0f; color: #f8f8f6; font-family: Arial, sans-serif;
+           display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .box { text-align: center; max-width: 520px; padding: 2rem; }
+    h1 { font-size: 1.4rem; font-weight: normal; margin-bottom: 1rem; }
+    p { color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .code-box {
+      background: #1a1a1a; border: 1px solid #c8a84b;
+      padding: 1rem 1.5rem; font-family: monospace; font-size: 0.85rem;
+      word-break: break-all; text-align: left; margin-bottom: 1rem;
+      color: #c8a84b; cursor: pointer;
+    }
+    .copy-btn {
+      background: #c8a84b; color: #0f0f0f; border: none;
+      padding: 0.75rem 2rem; font-size: 0.85rem; font-weight: bold;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+    }
+    .copy-btn:hover { background: #dbb85c; }
+    .success { color: #4caf50; font-size: 0.85rem; margin-top: 0.75rem; display: none; }
+    .error { color: #f44336; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div id="loading">
+      <h1>Connecting to Etsy...</h1>
+      <p>Reading authorization code.</p>
+    </div>
+    <div id="success" style="display:none">
+      <h1>Authorization code received.</h1>
+      <p>Copy this code and paste it into your terminal where the OAuth script is waiting.</p>
+      <div class="code-box" id="code-display" onclick="copyCode()"></div>
+      <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+      <p class="success" id="copied">✓ Copied to clipboard</p>
+      <p style="margin-top:1.5rem; font-size:0.8rem;">Once pasted into the terminal, your Etsy shop will be connected.</p>
+    </div>
+    <div id="error" style="display:none">
+      <h1 class="error">No authorization code found.</h1>
+      <p>Return to the terminal and run the OAuth script again.</p>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    if (code) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+      document.getElementById('code-display').textContent = code;
+    } else {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+    }
+
+    function copyCode() {
+      navigator.clipboard.writeText(code).then(() => {
+        document.getElementById('copied').style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>
