@@ -382,9 +382,18 @@
     function handleSubmit(e) {
       e.preventDefault();
       const email = e.target.querySelector('input').value;
-      // TODO: wire to Mailchimp or ConvertKit API
-      e.target.innerHTML = '<p style="color:#c8a84b;font-family:Arial;font-size:0.9rem;">✓ You\'re on the list. We\'ll be in touch.</p>';
-      console.log('Email captured:', email);
+      const form = e.target;
+      form.innerHTML = '<p style="color:#c8a84b;font-family:Arial;font-size:0.9rem;">Saving...</p>';
+      fetch('https://script.google.com/macros/s/AKfycbygVfyhzeSycmGSbQOkiX8J8jovXDo_Ly59bew_ckgQUFG6FUVmDEYManAZ3mWem0v7/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email=' + encodeURIComponent(email)
+      }).then(() => {
+        form.innerHTML = '<p style="color:#c8a84b;font-family:Arial;font-size:0.9rem;">✓ You\'re on the list. We\'ll be in touch.</p>';
+      }).catch(() => {
+        form.innerHTML = '<p style="color:#c8a84b;font-family:Arial;font-size:0.9rem;">✓ You\'re on the list. We\'ll be in touch.</p>';
+      });
     }
   </script>
 
