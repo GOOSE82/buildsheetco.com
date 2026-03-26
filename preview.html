@@ -145,22 +145,30 @@
 </nav>
 
 <div class="preview-hero">
-  <p class="tag">C10 Demo Build · Twin Turbo LS · 1000hp Target</p>
-  <h1>See exactly what you're buying.</h1>
-  <p>This is a real build sheet generated from a 1976 C10 twin turbo LS build. Click the thumbnails to page through every sheet in the package.</p>
+  <p class="tag">Instant Download · Printable · No App Required</p>
+  <h1>See exactly what you get before you buy.</h1>
+  <p>Flip through every page of each product below. What you see is what you print — clean, professional, ready to use.</p>
 </div>
 
 <div class="preview-tabs">
-  <div class="tab active" onclick="showProduct('auto01')">LS Swap Tracker</div>
+  <div class="tab active" onclick="showProduct('babybf')">Breastfeeding Bundle</div>
+  <div class="tab" onclick="showProduct('auto01')">LS Swap Tracker</div>
   <div class="tab" onclick="showProduct('auto02')">Restoration Log</div>
   <div class="tab" onclick="showProduct('auto03')">Drag Racing Log</div>
-  <div class="tab" onclick="showProduct('babybf')">Breastfeeding Bundle</div>
 </div>
 
 <div class="preview-frame">
 
+  <!-- Breastfeeding Bundle — 7 pages -->
+  <div class="page-viewer active" id="viewer-babybf">
+    <div class="viewer-inner">
+      <div class="thumb-strip" id="thumbs-babybf"></div>
+      <div class="main-view" id="main-babybf"></div>
+    </div>
+  </div>
+
   <!-- LS Swap Tracker — 5 pages -->
-  <div class="page-viewer active" id="viewer-auto01">
+  <div class="page-viewer" id="viewer-auto01">
     <div class="viewer-inner">
       <div class="thumb-strip" id="thumbs-auto01"></div>
       <div class="main-view" id="main-auto01"></div>
@@ -183,22 +191,15 @@
     </div>
   </div>
 
-  <!-- Breastfeeding Bundle — 7 pages -->
-  <div class="page-viewer" id="viewer-babybf">
-    <div class="viewer-inner">
-      <div class="thumb-strip" id="thumbs-babybf"></div>
-      <div class="main-view" id="main-babybf"></div>
-    </div>
-  </div>
 
 </div>
 <p class="watermark-notice">Watermarked sample — purchase on Etsy for the clean printable version.</p>
 
 <div class="cta-bar">
-  <h2>Ready to document your build.</h2>
-  <p>Instant download the moment you checkout. No app. No subscription. Just clean documentation for your build.</p>
+  <h2>Like what you see?</h2>
+  <p>Instant download the moment you checkout. Print as many copies as you need. No app, no subscription, no nonsense.</p>
   <div class="cta-buttons">
-    <a class="btn-gold" href="https://etsy.com/shop/buildsheetcompany" target="_blank">Buy on Etsy — $8.99</a>
+    <a class="btn-gold" href="https://etsy.com/shop/buildsheetcompany" target="_blank">Shop on Etsy</a>
     <a class="btn-outline" href="shop.html">See All Products</a>
   </div>
 </div>
@@ -272,7 +273,7 @@
   });
 
   // Init first product on load
-  buildViewer('auto01');
+  buildViewer('babybf');
 </script>
 
 </body>
