@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview — Build Sheet Co.</title>
+  <meta name="description" content="Preview the LS Build Sheet — professional build documentation for LS swaps, C10 builds, and performance cars." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --black:#0f0f0f; --white:#f8f8f6; --gray:#888; --accent:#c8a84b; --card-bg:#1a1a1a; --border:#2a2a2a; }
+    body { background: var(--black); color: var(--white); font-family: 'Georgia', serif; line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li a { color: var(--gray); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: Arial, sans-serif; }
+    nav ul li a:hover { color: var(--white); text-decoration: none; }
+
+    .preview-hero { max-width: 760px; margin: 3rem auto 2rem; padding: 0 2rem; text-align: center; }
+    .preview-hero .tag { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-family: Arial, sans-serif; margin-bottom: 1rem; }
+    .preview-hero h1 { font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: normal; margin-bottom: 1rem; }
+    .preview-hero p { font-size: 0.95rem; color: var(--gray); font-family: Arial, sans-serif; margin-bottom: 2rem; }
+
+    .preview-tabs { display: flex; gap: 0; max-width: 900px; margin: 0 auto 0; padding: 0 2rem; border-bottom: 1px solid var(--border); }
+    .tab { padding: 0.7rem 1.5rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: Arial, sans-serif; color: var(--gray); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab:hover { color: var(--white); }
+
+    .preview-frame { max-width: 900px; margin: 0 auto; padding: 0 2rem 3rem; }
+    .pdf-embed { width: 100%; height: 680px; border: 1px solid var(--border); background: var(--card-bg); margin-top: 1.5rem; }
+    .pdf-embed iframe { width: 100%; height: 100%; border: none; }
+
+    .cta-bar { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+    .cta-bar h2 { font-size: 1.6rem; font-weight: normal; margin-bottom: 0.75rem; }
+    .cta-bar p { color: var(--gray); font-family: Arial, sans-serif; margin-bottom: 2rem; font-size: 0.9rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { display: inline-block; padding: 0.85rem 2.2rem; background: var(--accent); color: var(--black); font-family: Arial, sans-serif; font-size: 0.85rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn-gold:hover { background: #dbb85c; text-decoration: none; }
+    .btn-outline { display: inline-block; padding: 0.85rem 2.2rem; border: 1px solid var(--accent); color: var(--accent); font-family: Arial, sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn-outline:hover { background: var(--accent); color: var(--black); text-decoration: none; }
+
+    footer { padding: 2.5rem 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.8rem; color: var(--gray); font-family: Arial, sans-serif; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--gray); font-family: Arial, sans-serif; }
+    .footer-links a:hover { color: var(--white); text-decoration: none; }
+    @media (max-width: 600px) { nav ul { display: none; } .preview-tabs { overflow-x: auto; } .pdf-embed { height: 420px; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Build <span>Sheet</span> Co.</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="preview.html">Preview</a></li>
+    <li><a href="https://etsy.com/shop/buildsheetco" target="_blank">Etsy</a></li>
+    <li><a href="mailto:hello@buildsheetco.com">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="preview-hero">
+  <p class="tag">C10 Demo Build · Twin Turbo LS · 1000hp Target</p>
+  <h1>See exactly what you're buying.</h1>
+  <p>This is a real build sheet generated from a 1976 C10 twin turbo LS build. Click through the tabs to preview every document in the package.</p>
+</div>
+
+<div class="preview-tabs">
+  <div class="tab active" onclick="showTab('pdf')">PDF Build Sheet</div>
+  <div class="tab" onclick="showTab('machine')">Machine Shop Spec</div>
+  <div class="tab" onclick="showTab('tracker')">LS Swap Tracker</div>
+  <div class="tab" onclick="showTab('drag')">Drag Racing Log</div>
+</div>
+
+<div class="preview-frame">
+  <div class="pdf-embed" id="tab-pdf">
+    <iframe src="products/auto_01.pdf" title="LS Swap Build Tracker Preview"></iframe>
+  </div>
+  <div class="pdf-embed" id="tab-machine" style="display:none">
+    <iframe src="products/auto_02.pdf" title="Machine Shop Spec Sheet Preview"></iframe>
+  </div>
+  <div class="pdf-embed" id="tab-tracker" style="display:none">
+    <iframe src="products/auto_01.pdf" title="LS Swap Tracker Preview"></iframe>
+  </div>
+  <div class="pdf-embed" id="tab-drag" style="display:none">
+    <iframe src="products/auto_03.pdf" title="Drag Racing Log Preview"></iframe>
+  </div>
+</div>
+
+<div class="cta-bar">
+  <h2>Ready to document your build.</h2>
+  <p>Instant download the moment you checkout. No app. No subscription. Just clean documentation for your build.</p>
+  <div class="cta-buttons">
+    <a class="btn-gold" href="https://etsy.com/shop/buildsheetco" target="_blank">Buy on Etsy — $8.99</a>
+    <a class="btn-outline" href="shop.html">See All Products</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Build Sheet Co. · buildsheetco.com</p>
+  <div class="footer-links">
+    <a href="https://etsy.com/shop/buildsheetco" target="_blank">Etsy Shop</a>
+    <a href="mailto:hello@buildsheetco.com">hello@buildsheetco.com</a>
+  </div>
+</footer>
+
+<script>
+  function showTab(name) {
+    ['pdf','machine','tracker','drag'].forEach(t => {
+      document.getElementById('tab-' + t).style.display = t === name ? 'block' : 'none';
+    });
+    document.querySelectorAll('.tab').forEach((el, i) => {
+      el.classList.toggle('active', ['pdf','machine','tracker','drag'][i] === name);
+    });
+  }
+</script>
+
+</body>
+</html>
