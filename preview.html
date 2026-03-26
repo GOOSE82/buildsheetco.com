@@ -154,6 +154,7 @@
   <div class="tab active" onclick="showProduct('auto01')">LS Swap Tracker</div>
   <div class="tab" onclick="showProduct('auto02')">Restoration Log</div>
   <div class="tab" onclick="showProduct('auto03')">Drag Racing Log</div>
+  <div class="tab" onclick="showProduct('babybf')">Breastfeeding Bundle</div>
 </div>
 
 <div class="preview-frame">
@@ -179,6 +180,14 @@
     <div class="viewer-inner">
       <div class="thumb-strip" id="thumbs-auto03"></div>
       <div class="main-view" id="main-auto03"></div>
+    </div>
+  </div>
+
+  <!-- Breastfeeding Bundle — 7 pages -->
+  <div class="page-viewer" id="viewer-babybf">
+    <div class="viewer-inner">
+      <div class="thumb-strip" id="thumbs-babybf"></div>
+      <div class="main-view" id="main-babybf"></div>
     </div>
   </div>
 
@@ -208,6 +217,7 @@
     auto01: { pages: 5, prefix: 'auto_01' },
     auto02: { pages: 4, prefix: 'auto_02' },
     auto03: { pages: 3, prefix: 'auto_03' },
+    babybf: { pages: 7, prefix: 'baby_bf' },
   };
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
